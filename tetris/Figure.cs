@@ -10,7 +10,7 @@ namespace tetris
     abstract class Figure : IEnumerable<Point>
     {
         /// <summary>
-        /// Положение квадратиков фигурки. Комvtyncvbnj
+        /// Положение квадратиков фигурки. Комvtyn122132132132132
         /// </summary> 
         protected Point[] elements;
 
