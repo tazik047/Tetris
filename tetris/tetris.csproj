@@ -44,7 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Figure.cs" />
+    <Compile Include="Entity\IFigure.cs" />
+    <Compile Include="Entity\Figure.cs" />
+    <Compile Include="Entity\LFigure.cs" />
+    <Compile Include="Entity\LrevFigure.cs" />
+    <Compile Include="Entity\SFigure.cs" />
+    <Compile Include="Entity\TFigure.cs" />
+    <Compile Include="Entity\ZFigure.cs" />
+    <Compile Include="Entity\ZrevFigure.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

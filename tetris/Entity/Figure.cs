@@ -211,47 +211,6 @@ namespace tetris
         }
     }
 
-    class ZFigure : Figure
-    {
-        public ZFigure(Point p, Heap heap, int sizeItem)
-            : base(heap, sizeItem)
-        {
-            elements = new Point[4];
-            elements[0] = p;
-            elements[1] = new Point(elements[0].X, elements[0].Y - SizeItem);
-            elements[2] = new Point(elements[1].X + SizeItem, elements[1].Y);
-            elements[3] = new Point(elements[2].X, elements[2].Y - SizeItem);
-            central = 2;
-        }
-    }
-
-    class ZrevFigure : Figure
-    {
-        public ZrevFigure(Point p, Heap heap, int sizeItem)
-            : base(heap, sizeItem)
-        {
-            elements = new Point[4];
-            elements[0] = p;
-            elements[1] = new Point(elements[0].X, elements[0].Y - SizeItem);
-            elements[2] = new Point(elements[1].X - SizeItem, elements[1].Y);
-            elements[3] = new Point(elements[2].X, elements[2].Y - SizeItem);
-            central = 2;
-        }
-    }
-
-    class TFigure : Figure
-    {
-        public TFigure(Point p, Heap heap, int sizeItem)
-            : base(heap, sizeItem)
-        {
-            elements = new Point[4];
-            elements[0] = p;
-            elements[1] = new Point(elements[0].X, elements[0].Y - SizeItem);
-            elements[2] = new Point(elements[1].X - SizeItem, elements[1].Y);
-            elements[3] = new Point(elements[1].X + SizeItem, elements[1].Y);
-            central = 1;
-        }
-    }
 
     class LFigure : Figure
     {
@@ -264,53 +223,6 @@ namespace tetris
             elements[2] = new Point(elements[1].X, elements[1].Y - SizeItem);
             elements[3] = new Point(elements[2].X, elements[2].Y - SizeItem);
             central = 2;
-        }
-    }
-
-    class LrevFigure : Figure
-    {
-        public LrevFigure(Point p, Heap heap, int sizeItem)
-            : base(heap, sizeItem)
-        {
-            elements = new Point[4];
-            elements[0] = p;
-            elements[1] = new Point(elements[0].X - SizeItem, elements[0].Y);
-            elements[2] = new Point(elements[1].X, elements[1].Y - SizeItem);
-            elements[3] = new Point(elements[2].X, elements[2].Y - SizeItem);
-            central = 2;
-        }
-    }
-
-    class IFigure : Figure
-    {
-        public IFigure(Point p, Heap heap, int sizeItem)
-            : base(heap, sizeItem)
-        {
-            elements = new Point[4];
-            elements[0] = p;
-            elements[1] = new Point(elements[0].X, elements[0].Y - SizeItem);
-            elements[2] = new Point(elements[1].X, elements[1].Y - SizeItem);
-            elements[3] = new Point(elements[2].X, elements[2].Y - SizeItem);
-            central = 2;
-        }
-    }
-
-    class SFigure : Figure
-    {
-        public SFigure(Point p, Heap heap, int sizeItem )
-            : base(heap, sizeItem)
-        {
-            elements = new Point[4];
-            elements[0] = p;
-            elements[1] = new Point(p.X + SizeItem, p.Y);
-            elements[2] = new Point(p.X, p.Y - SizeItem);
-            elements[3] = new Point(elements[1].X,
-                elements[2].Y);
-        }
-
-        public override void Turn()
-        {
-            return;
         }
     }
 }
