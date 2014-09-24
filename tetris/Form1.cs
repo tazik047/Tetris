@@ -171,6 +171,9 @@ namespace tetris
                 case "Escape":
                     label1_Click(this, EventArgs.Empty);
                     break;
+                default:
+                    Form1_KeyDown(sender, e);
+                    break;
             }
         }
 
