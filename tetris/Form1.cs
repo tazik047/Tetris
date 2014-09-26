@@ -13,7 +13,7 @@ namespace tetris
 {
     public partial class Form1 : Form
     {
-        Figure myFigure;
+        Figure myFigure;///привет,я уже задолбалсяшлшдшдш
         Figure nextFigure;
         Heap allHeap;
         //Brush[] col = new Brush[] { Brushes.Blue, Brushes.Red, Brushes.Yellow, Brushes.Orange };
