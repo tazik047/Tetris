@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using WMPLib;
+
 
 namespace tetris
 {
     public partial class Form1 : Form
     {
-        Figure myFigure;///привет,я уже задолбалсяшлшдшдш
+        Figure myFigure;
         Figure nextFigure;
         Heap allHeap;
         //Brush[] col = new Brush[] { Brushes.Blue, Brushes.Red, Brushes.Yellow, Brushes.Orange };
@@ -26,6 +28,7 @@ namespace tetris
             InitializeComponent();
 
             startGame();
+            RunMusic();//метод запуска музыки)
         }
 
         private void startGame()
@@ -44,11 +47,20 @@ namespace tetris
             allHeap.DrawHeap(Graphics.FromImage(imgHeap));
         }
 
+        public WMPLib.WindowsMediaPlayer WMP = new WMPLib.WindowsMediaPlayer();
+
+        private void RunMusic()
+        {
+            WMP.URL = @"C:\Users\Evg\Source\Repos\Tetris\tetris\Resources\Tetris.mp3";
+            WMP.controls.play();
+        }
+
         void allHeap_HeapOverflow(object sender, EventArgs e)
         {
             timer1.Enabled = false;
             KeyDown -= Form1_KeyDown;
-            var res = MessageBox.Show("Хотите начать занаво?", "Вы проиграли:(", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            var res = MessageBox.Show("Хотите начать заново?", "Вы проиграли:(", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            WMP.close();
             if(res == DialogResult.Yes)
             {
                 startGame();
@@ -243,6 +255,21 @@ namespace tetris
         private void label7_Click(object sender, EventArgs e)
         {
             step(myFigure.MoveDown);
+        }
+
+        private void Run_Click(object sender, EventArgs e)
+        {
+          WMP.controls.play();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            WMP.controls.pause();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            WMP.close();  
         }
     }
 }
