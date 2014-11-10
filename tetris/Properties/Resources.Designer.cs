@@ -69,5 +69,15 @@ namespace tetris.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _19688793_Тетрис_Поиграть_background {
+            get {
+                object obj = ResourceManager.GetObject("19688793-Тетрис-Поиграть-background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

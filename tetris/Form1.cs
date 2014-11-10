@@ -28,7 +28,7 @@ namespace tetris
             InitializeComponent();
 
             startGame();
-            RunMusic();
+           
         }
 
         private void startGame()
@@ -259,7 +259,7 @@ namespace tetris
 
         private void Run_Click(object sender, EventArgs e)
         {
-          WMP.controls.play();
+        WMP.controls.play();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -270,6 +270,30 @@ namespace tetris
         private void button3_Click(object sender, EventArgs e)
         {
             WMP.close();  
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            RunMusic();
+        }
+
+        bool music = true;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (music)
+            {
+                //RunMusic();
+                WMP.controls.pause();
+                music = false;
+                buttonMus.Text = "OFF";
+            }
+            else if (!music)
+            {
+                WMP.controls.play();
+                music = true;
+                buttonMus.Text = "ON";
+            }
+
         }
     }
 }
