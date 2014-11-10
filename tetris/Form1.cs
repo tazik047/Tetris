@@ -28,7 +28,7 @@ namespace tetris
             InitializeComponent();
 
             startGame();
-            RunMusic();//метод запуска музыки)
+            RunMusic();
         }
 
         private void startGame()
@@ -51,7 +51,7 @@ namespace tetris
 
         private void RunMusic()
         {
-            WMP.URL = @"C:\Users\Evg\Source\Repos\Tetris\tetris\Resources\Tetris.mp3";
+            WMP.URL = @"Tetris.mp3";
             WMP.controls.play();
         }
 
