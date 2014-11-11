@@ -226,9 +226,11 @@
             this.buttonMus.Name = "buttonMus";
             this.buttonMus.Size = new System.Drawing.Size(41, 31);
             this.buttonMus.TabIndex = 13;
+            this.buttonMus.TabStop = false;
             this.buttonMus.Text = "ON";
             this.buttonMus.UseVisualStyleBackColor = true;
             this.buttonMus.Click += new System.EventHandler(this.button1_Click);
+            this.buttonMus.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_SystemKeyDown);
             // 
             // Form1
             // 
@@ -254,6 +256,7 @@
             this.Text = "Тетрис";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_SystemKeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

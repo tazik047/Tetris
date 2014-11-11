@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 using WMPLib;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 
 namespace tetris
@@ -22,6 +24,7 @@ namespace tetris
         Image imgHeap;
         int score;
         int nextUpper;
+        List<Gamer> gamers = new List<Gamer>();
 
         public Form1()
         {
@@ -45,6 +48,10 @@ namespace tetris
 
             imgHeap = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
             allHeap.DrawHeap(Graphics.FromImage(imgHeap));
+            pictureBox1.Focus();
+            Activate();
+            Focus();
+            
         }
 
         public WMPLib.WindowsMediaPlayer WMP = new WMPLib.WindowsMediaPlayer();
@@ -59,14 +66,56 @@ namespace tetris
         {
             timer1.Enabled = false;
             KeyDown -= Form1_KeyDown;
-            var res = MessageBox.Show("Хотите начать заново?", "Вы проиграли:(", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            this.checkBestScore();
+
+            MessageBox.Show(score.ToString());
+            var res = MessageBox.Show("Хотите начать заново?", "Вы проиграли :(", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             WMP.close();
-            if(res == DialogResult.Yes)
+            if (res == DialogResult.Yes)
             {
                 startGame();
                 timer1.Enabled = true;
                 KeyDown += Form1_KeyDown;
             }
+        }
+
+        private void checkBestScore()
+        {
+            this.Open();
+            //gamers.Insert(1, new Gamer("SomeName2", this.score, System.DateTime.Now.ToString()));
+            //this.Save();
+            for (int i = 0; i < gamers.Count-1; i++)
+            {
+                if (this.score >= gamers[i].Score && (this.score < gamers[i+1].Score || i == 0))
+                {
+                    gamers.Insert(i, new Gamer("SomeName3", this.score, System.DateTime.Now.ToString()));
+                    this.Save();
+                    break;
+                }
+            }
+            
+        }
+
+        public void Save()
+        {
+            BinaryFormatter binFormat = new BinaryFormatter();
+            using (Stream fStream = new FileStream("bestScores.dat", FileMode.OpenOrCreate))
+            {
+                binFormat.Serialize(fStream, gamers);
+            }
+        }
+
+        public void Open()
+        {
+            BinaryFormatter binFormat = new BinaryFormatter();
+            try
+            {
+                using (Stream fStream = new FileStream("bestScores.dat", FileMode.OpenOrCreate))
+                {
+                    gamers = (List<Gamer>)binFormat.Deserialize(fStream);
+                }
+            }
+            catch { }
         }
 
         private void zf_AddToHeap(object sender, EventArgs e)
@@ -155,22 +204,20 @@ namespace tetris
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (Convert.ToString(e.KeyCode))
+
+            //MessageBox.Show(e.KeyCode.ToString());
+            switch (e.KeyCode)
             {
-                case "W":
-                case "Up":
+                case Keys.W:
                     step(myFigure.Turn);
                     break;
-                case "S":
-                case "Down":
+                case Keys.S:
                     step(myFigure.MoveDown);
                     break;
-                case "D":
-                case "Right":
+                case Keys.D:
                     step(myFigure.MoveRight);
                     break;
-                case "A":
-                case "Left":
+                case Keys.A:
                     step(myFigure.MoveLeft);
                     break;
             }
@@ -275,6 +322,7 @@ namespace tetris
         private void Form1_Load(object sender, EventArgs e)
         {
             RunMusic();
+            startGame();
         }
 
         bool music = true;
@@ -282,7 +330,6 @@ namespace tetris
         {
             if (music)
             {
-                //RunMusic();
                 WMP.controls.pause();
                 music = false;
                 buttonMus.Text = "OFF";
@@ -294,6 +341,12 @@ namespace tetris
                 buttonMus.Text = "ON";
             }
 
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           //MessageBox.Show(e.KeyChar.ToString());
+            //Form1_KeyDown(sender,e.)
         }
     }
 }
