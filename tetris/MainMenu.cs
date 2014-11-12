@@ -17,11 +17,12 @@ namespace tetris
             InitializeComponent();
         }
 
-        Form1 form = new Form1();
-        Records records = new Records();
+        Form1 form;
+        Records records;
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
+            form = new Form1();
             form.ShowDialog();
             this.Show();
             form.WMP.controls.pause();
@@ -40,9 +41,15 @@ namespace tetris
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
+            records = new Records();
             records.ShowDialog();
             this.Show();
             form.WMP.controls.pause();
+        }
+
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

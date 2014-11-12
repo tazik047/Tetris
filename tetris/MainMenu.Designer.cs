@@ -89,6 +89,7 @@
             this.Margin = new System.Windows.Forms.Padding(8);
             this.Name = "MainMenu";
             this.Text = "Тетрис - Back To 90-ies";
+            this.Load += new System.EventHandler(this.MainMenu_Load);
             this.ResumeLayout(false);
 
         }

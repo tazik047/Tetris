@@ -30,10 +30,9 @@ namespace tetris
         {
             InitializeComponent();
 
-            //timer1.Enabled = false;
             startGame();
-            timer1.Enabled = true;
-            KeyDown += Form1_KeyDown;
+            //timer1.Enabled = true;
+            //KeyDown += Form1_KeyDown;
            
         }
 
@@ -53,7 +52,9 @@ namespace tetris
             allHeap.DrawHeap(Graphics.FromImage(imgHeap));
             pictureBox1.Focus();
             Activate();
-            Focus();
+            //Focus();
+            buttonMus.Focus();
+            buttonMus.TabIndex = 0;
             
         }
 
@@ -70,9 +71,11 @@ namespace tetris
         {
             timer1.Enabled = false;
             KeyDown -= Form1_KeyDown;
-            this.checkBestScore();
-            nbs = new NewBestScore();
-            nbs.ShowDialog();
+            if (this.checkBestScore())
+            {
+                nbs = new NewBestScore();
+                nbs.ShowDialog();
+            }
 
             var res = MessageBox.Show("Хотите начать заново?", "Вы проиграли :(", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             WMP.close();
@@ -84,9 +87,9 @@ namespace tetris
             }
         }
 
-        private void checkBestScore()
+        private bool checkBestScore()
         {
-
+            bool res = false;
             this.Open();
             if (gamers.Count == 0)
             {
@@ -109,6 +112,7 @@ namespace tetris
                     {
                         gamers.Insert(i, new Gamer("Winner", this.score));
                         this.Save();
+                        res = true;
                         break;
                     }
                 }
@@ -118,7 +122,7 @@ namespace tetris
                     gamers.RemoveAt(gamers.Count - 1);
             //gamers.Clear();
             this.Save();
-            
+            return res;
         }
 
         public void Save()
@@ -257,6 +261,10 @@ namespace tetris
                     Form1_KeyDown(sender, e);
                     break;
             }
+
+            if (e.KeyCode == Keys.Q)
+                buttonMus.Focus();
+
         }
 
         private void step(Action actionStep)
@@ -330,7 +338,10 @@ namespace tetris
         private void Form1_Load(object sender, EventArgs e)
         {
             RunMusic();
+            buttonMus.TabIndex = 0;
             startGame();
+            timer1.Enabled = true;
+            KeyDown += Form1_KeyDown;
         }
 
         bool music = true;

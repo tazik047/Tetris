@@ -224,13 +224,15 @@
             // 
             // buttonMus
             // 
-            this.buttonMus.Location = new System.Drawing.Point(307, 177);
+            this.buttonMus.BackColor = System.Drawing.Color.Transparent;
+            this.buttonMus.ImageKey = "(none)";
+            this.buttonMus.Location = new System.Drawing.Point(307, 178);
             this.buttonMus.Name = "buttonMus";
-            this.buttonMus.Size = new System.Drawing.Size(41, 31);
+            this.buttonMus.Size = new System.Drawing.Size(41, 30);
             this.buttonMus.TabIndex = 13;
             this.buttonMus.TabStop = false;
             this.buttonMus.Text = "ON";
-            this.buttonMus.UseVisualStyleBackColor = true;
+            this.buttonMus.UseVisualStyleBackColor = false;
             this.buttonMus.Click += new System.EventHandler(this.button1_Click);
             this.buttonMus.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_SystemKeyDown);
             // 
@@ -238,7 +240,7 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = global::tetris.Properties.Resources.Volume_2;
-            this.pictureBox3.Location = new System.Drawing.Point(288, 307);
+            this.pictureBox3.Location = new System.Drawing.Point(307, 235);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(29, 27);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -271,7 +273,6 @@
             this.Text = "Тетрис";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_SystemKeyDown);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
