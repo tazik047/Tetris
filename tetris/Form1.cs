@@ -20,17 +20,20 @@ namespace tetris
         Figure myFigure;
         Figure nextFigure;
         Heap allHeap;
-        //Brush[] col = new Brush[] { Brushes.Blue, Brushes.Red, Brushes.Yellow, Brushes.Orange };
         Image imgHeap;
         int score;
         int nextUpper;
         List<Gamer> gamers = new List<Gamer>();
+        NewBestScore nbs;
 
         public Form1()
         {
             InitializeComponent();
 
+            //timer1.Enabled = false;
             startGame();
+            timer1.Enabled = true;
+            KeyDown += Form1_KeyDown;
            
         }
 
@@ -62,13 +65,15 @@ namespace tetris
             WMP.controls.play();
         }
 
+
         void allHeap_HeapOverflow(object sender, EventArgs e)
         {
             timer1.Enabled = false;
             KeyDown -= Form1_KeyDown;
             this.checkBestScore();
+            nbs = new NewBestScore();
+            nbs.ShowDialog();
 
-            MessageBox.Show(score.ToString());
             var res = MessageBox.Show("Хотите начать заново?", "Вы проиграли :(", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             WMP.close();
             if (res == DialogResult.Yes)
@@ -81,18 +86,38 @@ namespace tetris
 
         private void checkBestScore()
         {
+
             this.Open();
-            //gamers.Insert(1, new Gamer("SomeName2", this.score, System.DateTime.Now.ToString()));
-            //this.Save();
-            for (int i = 0; i < gamers.Count-1; i++)
+            if (gamers.Count == 0)
             {
-                if (this.score >= gamers[i].Score && (this.score < gamers[i+1].Score || i == 0))
-                {
-                    gamers.Insert(i, new Gamer("SomeName3", this.score, System.DateTime.Now.ToString()));
-                    this.Save();
-                    break;
-                }
+                gamers.Add(new Gamer("Winner", this.score));
+                this.Save();
             }
+            else if (gamers.Count == 1)
+            {
+                if (gamers[0].Score < this.score)
+                    gamers.Insert(0, new Gamer("Winner", this.score));
+                else
+                    gamers.Add(new Gamer("Winner", this.score));
+                this.Save();
+            }
+            else
+                for (int i = 0; i < 9; i++)
+                {
+                
+                    if (this.score >= gamers[i].Score)
+                    {
+                        gamers.Insert(i, new Gamer("Winner", this.score));
+                        this.Save();
+                        break;
+                    }
+                }
+
+            if (gamers.Count > 10)
+                while (gamers.Count != 10)
+                    gamers.RemoveAt(gamers.Count - 1);
+            //gamers.Clear();
+            this.Save();
             
         }
 
@@ -204,8 +229,6 @@ namespace tetris
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-
-            //MessageBox.Show(e.KeyCode.ToString());
             switch (e.KeyCode)
             {
                 case Keys.W:
@@ -302,21 +325,6 @@ namespace tetris
         private void label7_Click(object sender, EventArgs e)
         {
             step(myFigure.MoveDown);
-        }
-
-        private void Run_Click(object sender, EventArgs e)
-        {
-        WMP.controls.play();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            WMP.controls.pause();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            WMP.close();  
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -15,6 +15,7 @@ namespace tetris
     public partial class Records : Form
     {
         List<Gamer> gamers = new List<Gamer>();
+        List<Label> record = new List<Label>();
 
         public Records()
         {
@@ -23,12 +24,43 @@ namespace tetris
 
         private void Records_Load(object sender, EventArgs e)
         {
-            label1.Text = "";
-            label1.Size = new System.Drawing.Size(35, 350);
             this.Open();
+            int x = 10;
+            int y = 50;
+
             for (int i = 0; i < gamers.Count; i++)
             {
-                label1.Text += gamers[i].ToString() + "\n";
+                record.Add(new Label
+                {
+                    Text = (i + 1).ToString() + ")   " + gamers[i].Name,
+                    Size = new System.Drawing.Size(200, 25),
+                    Location = new System.Drawing.Point(x, y),
+                    Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))),
+                });
+                this.Controls.Add((Label)record[record.Count - 1]);
+                x += 240;
+
+                record.Add(new Label
+                {
+                    Text = gamers[i].Score.ToString(),
+                    Size = new System.Drawing.Size(50, 25),
+                    Location = new System.Drawing.Point(x, y),
+                    Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))),
+                    TextAlign = System.Drawing.ContentAlignment.TopRight,
+                });
+                this.Controls.Add((Label)record[record.Count - 1]);
+                x = 165;
+
+                /*record.Add(new Label
+                {
+                    Text = "..................................",
+                    Size = new System.Drawing.Size(350, 25),
+                    Location = new System.Drawing.Point(x, y),
+                    Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))),
+                });
+                this.Controls.Add((Label)record[record.Count - 1]);*/
+                x = 10;
+                y += 30;
             }
         }
 
@@ -43,6 +75,11 @@ namespace tetris
                 }
             }
             catch { }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

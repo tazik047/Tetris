@@ -66,6 +66,12 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewBestScore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewBestScore.Designer.cs">
+      <DependentUpon>NewBestScore.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Records.cs">
@@ -79,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewBestScore.resx">
+      <DependentUpon>NewBestScore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -166,7 +175,11 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Volume_2.png" />
+    <None Include="Resources\volume-24-512.png" />
     <None Include="Resources\19688793-Тетрис-Поиграть-background.jpg" />
+    <None Include="Resources\614320-volume_big-512.png" />
+    <None Include="Resources\music_off-512.png" />
     <Content Include="Resources\Tetris.mp3" />
     <None Include="Resources\TetrisMusic.bmp" />
   </ItemGroup>
