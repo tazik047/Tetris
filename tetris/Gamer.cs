@@ -11,6 +11,7 @@ namespace tetris
     {
         public string Name { set; get; }
         public int Score { set; get; }
+        public bool IsLast { set; get; }
 
         public Gamer()
         {

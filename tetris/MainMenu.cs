@@ -44,7 +44,6 @@ namespace tetris
             records = new Records();
             records.ShowDialog();
             this.Show();
-            form.WMP.controls.pause();
         }
 
         private void MainMenu_Load(object sender, EventArgs e)

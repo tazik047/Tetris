@@ -73,9 +73,9 @@ namespace tetris.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _19688793_Тетрис_Поиграть_background {
+        internal static System.Drawing.Bitmap bgbest {
             get {
-                object obj = ResourceManager.GetObject("19688793-Тетрис-Поиграть-background", resourceCulture);
+                object obj = ResourceManager.GetObject("bgbest", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,19 +83,9 @@ namespace tetris.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _614320_volume_big_512 {
+        internal static System.Drawing.Bitmap bgmain {
             get {
-                object obj = ResourceManager.GetObject("614320-volume_big-512", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap music_off_512 {
-            get {
-                object obj = ResourceManager.GetObject("music_off-512", resourceCulture);
+                object obj = ResourceManager.GetObject("bgmain", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,16 +96,6 @@ namespace tetris.Properties {
         internal static System.Drawing.Bitmap Volume_2 {
             get {
                 object obj = ResourceManager.GetObject("Volume_2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap volume_24_512 {
-            get {
-                object obj = ResourceManager.GetObject("volume-24-512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

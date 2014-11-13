@@ -108,6 +108,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "NewBestScore";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NewBestScore";
             this.Load += new System.EventHandler(this.NewBestScore_Load);
             this.ResumeLayout(false);

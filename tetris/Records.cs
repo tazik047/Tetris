@@ -35,19 +35,43 @@ namespace tetris
                     Text = (i + 1).ToString() + ")   " + gamers[i].Name,
                     Size = new System.Drawing.Size(200, 25),
                     Location = new System.Drawing.Point(x, y),
+                    BackColor = System.Drawing.Color.Transparent,
                     Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))),
                 });
+                if 
+                    (i < 3) record[record.Count - 1].ForeColor = System.Drawing.Color.Red;
+                else 
+                    record[record.Count - 1].ForeColor = System.Drawing.Color.LightCyan;
+
+                if (gamers[i].IsLast)
+                {
+                    record[record.Count - 1].Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204))); 
+                }
+
                 this.Controls.Add((Label)record[record.Count - 1]);
-                x += 240;
+                x += 275;
 
                 record.Add(new Label
                 {
                     Text = gamers[i].Score.ToString(),
                     Size = new System.Drawing.Size(50, 25),
                     Location = new System.Drawing.Point(x, y),
+                    BackColor = System.Drawing.Color.Transparent,
+                    ForeColor = System.Drawing.Color.LightCyan,
                     Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))),
                     TextAlign = System.Drawing.ContentAlignment.TopRight,
                 });
+                if (i < 3) 
+                    record[record.Count - 1].ForeColor = System.Drawing.Color.Red;
+                else 
+                    record[record.Count - 1].ForeColor = System.Drawing.Color.LightCyan;
+
+                if (gamers[i].IsLast)
+                {
+                    record[record.Count - 1].Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+                    gamers[i].IsLast = false;
+                }
+
                 this.Controls.Add((Label)record[record.Count - 1]);
                 x = 165;
 
@@ -62,6 +86,7 @@ namespace tetris
                 x = 10;
                 y += 30;
             }
+            this.Save();
         }
 
         public void Open()
@@ -75,6 +100,15 @@ namespace tetris
                 }
             }
             catch { }
+        }
+
+        public void Save()
+        {
+            BinaryFormatter binFormat = new BinaryFormatter();
+            using (Stream fStream = new FileStream("bestScores.dat", FileMode.OpenOrCreate))
+            {
+                binFormat.Serialize(fStream, gamers);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -30,6 +30,7 @@ namespace tetris
                 if (gamers[i].Name == "Winner")
                 {
                     gamers[i].Name = textBox1.Text;
+                    gamers[i].IsLast = true;
                     this.Save();
                     break;
                 }

@@ -228,7 +228,7 @@
             this.buttonMus.ImageKey = "(none)";
             this.buttonMus.Location = new System.Drawing.Point(307, 178);
             this.buttonMus.Name = "buttonMus";
-            this.buttonMus.Size = new System.Drawing.Size(41, 30);
+            this.buttonMus.Size = new System.Drawing.Size(22, 18);
             this.buttonMus.TabIndex = 13;
             this.buttonMus.TabStop = false;
             this.buttonMus.Text = "ON";
@@ -240,9 +240,9 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = global::tetris.Properties.Resources.Volume_2;
-            this.pictureBox3.Location = new System.Drawing.Point(307, 235);
+            this.pictureBox3.Location = new System.Drawing.Point(297, 178);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(29, 27);
+            this.pictureBox3.Size = new System.Drawing.Size(32, 28);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 14;
             this.pictureBox3.TabStop = false;
@@ -270,7 +270,9 @@
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Тетрис";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_SystemKeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

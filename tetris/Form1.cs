@@ -25,12 +25,15 @@ namespace tetris
         int nextUpper;
         List<Gamer> gamers = new List<Gamer>();
         NewBestScore nbs;
+        bool gameover;
 
         public Form1()
         {
             InitializeComponent();
 
             startGame();
+            //buttonMus.TabIndex = 0;
+            buttonMus.Focus();
             //timer1.Enabled = true;
             //KeyDown += Form1_KeyDown;
            
@@ -38,6 +41,7 @@ namespace tetris
 
         private void startGame()
         {
+            gameover = false;
             allHeap = new Heap(pictureBox1.Size);
             allHeap.HeapOverflow += allHeap_HeapOverflow;
             
@@ -50,11 +54,10 @@ namespace tetris
 
             imgHeap = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
             allHeap.DrawHeap(Graphics.FromImage(imgHeap));
-            pictureBox1.Focus();
+            //pictureBox1.Focus();
             Activate();
             //Focus();
             buttonMus.Focus();
-            buttonMus.TabIndex = 0;
             
         }
 
@@ -64,6 +67,7 @@ namespace tetris
         {
             WMP.URL = @"Tetris.mp3";
             WMP.controls.play();
+            buttonMus.Focus();
         }
 
 
@@ -71,6 +75,7 @@ namespace tetris
         {
             timer1.Enabled = false;
             KeyDown -= Form1_KeyDown;
+            gameover = true;
             if (this.checkBestScore())
             {
                 nbs = new NewBestScore();
@@ -85,6 +90,11 @@ namespace tetris
                 timer1.Enabled = true;
                 KeyDown += Form1_KeyDown;
             }
+            else
+            {
+                this.Close();
+            }
+            buttonMus.Focus();
         }
 
         private bool checkBestScore()
@@ -170,6 +180,7 @@ namespace tetris
                 KeyDown += Form1_KeyDown;
             }
             createNewFigure();
+            buttonMus.Focus();
         }
 
         private void createNewFigure()
@@ -200,6 +211,7 @@ namespace tetris
             }
             myFigure.AddToHeap += zf_AddToHeap;
             createNextFigure();
+            buttonMus.Focus();
         }
 
         private void createNextFigure()
@@ -229,6 +241,7 @@ namespace tetris
                     break;
             }
             pictureBox2.Invalidate();
+            buttonMus.Focus();
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -248,6 +261,7 @@ namespace tetris
                     step(myFigure.MoveLeft);
                     break;
             }
+            buttonMus.Focus();
         }
 
         private void Form1_SystemKeyDown(object sender, KeyEventArgs e)
@@ -271,6 +285,7 @@ namespace tetris
         {
             actionStep();
             pictureBox1.Invalidate();
+            buttonMus.Focus();
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
@@ -278,11 +293,13 @@ namespace tetris
             e.Graphics.DrawImage(imgHeap, 0, 0);
             if (timer1.Enabled)
                 myFigure.Draw(e.Graphics);
+            buttonMus.Focus();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             step(myFigure.MoveDown);
+            buttonMus.Focus();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -293,6 +310,8 @@ namespace tetris
                 KeyDown += Form1_KeyDown;
             else
                 KeyDown -= Form1_KeyDown;
+
+            buttonMus.Focus();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -308,40 +327,47 @@ namespace tetris
             }
             timer1.Enabled = true;
             KeyDown += Form1_KeyDown;
+            buttonMus.Focus();
         }
 
         private void pictureBox2_Paint(object sender, PaintEventArgs e)
         {
             nextFigure.Draw(e.Graphics);
+            buttonMus.Focus();
         }
 
         private void label9_Click(object sender, EventArgs e)
         {
             step(myFigure.Turn);
+            buttonMus.Focus();
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
             step(myFigure.MoveLeft);
+            buttonMus.Focus();
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
             step(myFigure.MoveRight);
+            buttonMus.Focus();
         }
 
         private void label7_Click(object sender, EventArgs e)
         {
             step(myFigure.MoveDown);
+            buttonMus.Focus();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             RunMusic();
-            buttonMus.TabIndex = 0;
             startGame();
             timer1.Enabled = true;
             KeyDown += Form1_KeyDown;
+            buttonMus.TabIndex = 0;
+            buttonMus.Focus();
         }
 
         bool music = true;
@@ -359,13 +385,33 @@ namespace tetris
                 music = true;
                 buttonMus.Text = "ON";
             }
-
+            buttonMus.Focus();
         }
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
            //MessageBox.Show(e.KeyChar.ToString());
             //Form1_KeyDown(sender,e.)
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!gameover)
+            {
+                var res = MessageBox.Show("Вы точно хотите выйти?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (res == DialogResult.Yes)
+                {
+                    timer1.Enabled = false;
+                    KeyDown -= Form1_KeyDown;
+                    return;
+                }
+                else if (res == DialogResult.No)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+            }
+                
         }
     }
 }
