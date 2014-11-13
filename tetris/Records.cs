@@ -32,7 +32,7 @@ namespace tetris
             {
                 record.Add(new Label
                 {
-                    Text = (i + 1).ToString() + ")   " + gamers[i].Name,
+                    Text = (i + 1).ToString() + ".  " + gamers[i].Name,
                     Size = new System.Drawing.Size(200, 25),
                     Location = new System.Drawing.Point(x, y),
                     BackColor = System.Drawing.Color.Transparent,
@@ -114,6 +114,11 @@ namespace tetris
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

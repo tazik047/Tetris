@@ -39,17 +39,18 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.Color.Gold;
-            this.label3.Location = new System.Drawing.Point(78, 9);
+            this.label3.Location = new System.Drawing.Point(92, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(174, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "Лучшие игроки";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(130, 419);
+            this.button1.Location = new System.Drawing.Point(234, 428);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(98, 31);
             this.button1.TabIndex = 3;
