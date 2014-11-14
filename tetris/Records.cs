@@ -74,14 +74,6 @@ namespace tetris
                 this.Controls.Add((Label)record[record.Count - 1]);
                 x = 165;
 
-                /*record.Add(new Label
-                {
-                    Text = "..................................",
-                    Size = new System.Drawing.Size(350, 25),
-                    Location = new System.Drawing.Point(x, y),
-                    Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))),
-                });
-                this.Controls.Add((Label)record[record.Count - 1]);*/
                 x = 10;
                 y += 30;
             }

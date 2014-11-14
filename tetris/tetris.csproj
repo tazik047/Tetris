@@ -196,6 +196,7 @@
     <None Include="Resources\bggame6.jpg" />
     <None Include="Resources\bggame7.jpg" />
     <None Include="Resources\bggame8.jpg" />
+    <None Include="Resources\images.jpg" />
     <Content Include="Resources\Tetris.mp3" />
     <None Include="Resources\TetrisMusic.bmp" />
   </ItemGroup>

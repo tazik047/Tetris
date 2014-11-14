@@ -130,7 +130,11 @@ namespace tetris
             if (gamers.Count > 10)
                 while (gamers.Count != 10)
                     gamers.RemoveAt(gamers.Count - 1);
-            //gamers.Clear();
+
+            /*gamers.Clear();
+            for (int i = 0; i < 10; i++)
+                gamers.Add(new Gamer("Gamer", 0));*/
+
             this.Save();
             return res;
         }
@@ -307,9 +311,16 @@ namespace tetris
             timer1.Enabled = !timer1.Enabled;
             label10.Visible = !label10.Visible;
             if (timer1.Enabled)
+            {
                 KeyDown += Form1_KeyDown;
+                if (music) 
+                    WMP.controls.play();
+            }
             else
+            {
                 KeyDown -= Form1_KeyDown;
+                WMP.controls.pause();
+            }
 
             buttonMus.Focus();
         }
@@ -380,6 +391,8 @@ namespace tetris
         {
             timer1.Enabled = false;
             KeyDown -= Form1_KeyDown;
+            WMP.controls.pause();
+
             if (!gameover)
             {
                 var res = MessageBox.Show("Вы точно хотите выйти?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -394,6 +407,8 @@ namespace tetris
                     e.Cancel = true;
                     timer1.Enabled = true;
                     KeyDown += Form1_KeyDown;
+                    if (music)
+                        WMP.controls.play();
                     return;
                 }
             }
