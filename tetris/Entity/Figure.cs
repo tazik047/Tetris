@@ -185,7 +185,7 @@ namespace tetris
 
         public void Draw(Graphics g)
         {
-            Brush[] col = new Brush[] { Brushes.Blue, Brushes.Red, Brushes.Yellow, Brushes.Orange };
+            Brush[] col = new Brush[] { Brushes.DodgerBlue, Brushes.OrangeRed, Brushes.Yellow, Brushes.Gold };
             for (int i = 0; i < elements.Length; ++i)
                 g.FillRectangle(col[i % col.Length], elements[i].X, elements[i].Y,
                     SizeItem, SizeItem);

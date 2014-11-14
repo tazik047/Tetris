@@ -63,23 +63,23 @@ namespace tetris
         {
             g.Clear(System.Drawing.Color.White);
             foreach(var i in elements)
-                g.FillRectangle(System.Drawing.Brushes.Gray, i.X, i.Y,
+                g.FillRectangle(System.Drawing.Brushes.DimGray, i.X, i.Y,
                     tetris.Properties.Settings.Default.SizeItem, tetris.Properties.Settings.Default.SizeItem);
         }
         
         public void KillHeap(System.Drawing.Graphics g, List<int> list, System.Windows.Forms.PictureBox box)
         {
             var dell = elements.Where(p => list.Any(i => i == p.Y));
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
-                drawHeap(g, System.Drawing.Brushes.Red, dell);
-                drawHeap(box.CreateGraphics(), System.Drawing.Brushes.Red, dell);
+                drawHeap(g, System.Drawing.Brushes.LawnGreen, dell);
+                drawHeap(box.CreateGraphics(), System.Drawing.Brushes.LawnGreen, dell);
                 System.Threading.Thread.Sleep(100);
-                drawHeap(g, System.Drawing.Brushes.Orange, dell);
-                drawHeap(box.CreateGraphics(), System.Drawing.Brushes.Orange, dell);
+                drawHeap(g, System.Drawing.Brushes.Green, dell);
+                drawHeap(box.CreateGraphics(), System.Drawing.Brushes.Green, dell);
                 System.Threading.Thread.Sleep(100);
-                drawHeap(g, System.Drawing.Brushes.Blue, dell);
-                drawHeap(box.CreateGraphics(), System.Drawing.Brushes.Blue, dell);
+                drawHeap(g, System.Drawing.Brushes.LightGreen, dell);
+                drawHeap(box.CreateGraphics(), System.Drawing.Brushes.LightGreen, dell);
                 System.Threading.Thread.Sleep(100);
             }
             elements.RemoveAll(p => list.Any(i => i == p.Y));

@@ -175,6 +175,9 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\volumeOFF.png" />
+    <None Include="Resources\volumeOFF.jpg" />
+    <None Include="Resources\volumeON.png" />
     <None Include="Resources\Volume_2.png" />
     <None Include="Resources\volume-24-512.png" />
     <None Include="Resources\19688793-Тетрис-Поиграть-background.jpg" />
@@ -182,6 +185,17 @@
     <None Include="Resources\music_off-512.png" />
     <None Include="Resources\bgbest.jpg" />
     <None Include="Resources\bgmain.jpg" />
+    <None Include="Resources\bggame.jpg" />
+    <None Include="Resources\Navigation-keys_thumb[3].png" />
+    <None Include="Resources\bggame2.jpg" />
+    <None Include="Resources\bggame21.jpg" />
+    <None Include="Resources\bggame3.jpg" />
+    <None Include="Resources\bggame4.jpg" />
+    <None Include="Resources\bggame41.jpg" />
+    <None Include="Resources\bggame5.jpg" />
+    <None Include="Resources\bggame6.jpg" />
+    <None Include="Resources\bggame7.jpg" />
+    <None Include="Resources\bggame8.jpg" />
     <Content Include="Resources\Tetris.mp3" />
     <None Include="Resources\TetrisMusic.bmp" />
   </ItemGroup>

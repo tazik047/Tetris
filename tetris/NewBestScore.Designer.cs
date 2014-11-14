@@ -59,16 +59,17 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(142, 97);
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.Location = new System.Drawing.Point(142, 96);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
+            this.textBox1.Size = new System.Drawing.Size(200, 22);
             this.textBox1.TabIndex = 2;
             // 
             // scoreText
             // 
             this.scoreText.AutoSize = true;
             this.scoreText.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.scoreText.Location = new System.Drawing.Point(160, 57);
+            this.scoreText.Location = new System.Drawing.Point(142, 57);
             this.scoreText.Name = "scoreText";
             this.scoreText.Size = new System.Drawing.Size(47, 17);
             this.scoreText.TabIndex = 3;
@@ -109,7 +110,7 @@
             this.Controls.Add(this.label1);
             this.Name = "NewBestScore";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NewBestScore";
+            this.Text = "Новый рекорд";
             this.Load += new System.EventHandler(this.NewBestScore_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

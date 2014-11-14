@@ -314,22 +314,6 @@ namespace tetris
             buttonMus.Focus();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-            timer1.Enabled = false;
-            KeyDown -= Form1_KeyDown;
-
-            var res = MessageBox.Show("Вы точно хотите выйти?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (res == DialogResult.Yes)
-            {
-                Close();
-                return;
-            }
-            timer1.Enabled = true;
-            KeyDown += Form1_KeyDown;
-            buttonMus.Focus();
-        }
-
         private void pictureBox2_Paint(object sender, PaintEventArgs e)
         {
             nextFigure.Draw(e.Graphics);
@@ -377,25 +361,25 @@ namespace tetris
             {
                 WMP.controls.pause();
                 music = false;
-                buttonMus.Text = "OFF";
+                this.pictureBox4.Image = global::tetris.Properties.Resources.volumeOFF1;
             }
             else if (!music)
             {
                 WMP.controls.play();
                 music = true;
-                buttonMus.Text = "ON";
+                this.pictureBox4.Image = global::tetris.Properties.Resources.volumeON;
             }
             buttonMus.Focus();
         }
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
-           //MessageBox.Show(e.KeyChar.ToString());
-            //Form1_KeyDown(sender,e.)
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            timer1.Enabled = false;
+            KeyDown -= Form1_KeyDown;
             if (!gameover)
             {
                 var res = MessageBox.Show("Вы точно хотите выйти?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -408,10 +392,30 @@ namespace tetris
                 else if (res == DialogResult.No)
                 {
                     e.Cancel = true;
+                    timer1.Enabled = true;
+                    KeyDown += Form1_KeyDown;
                     return;
                 }
             }
-                
+
+        }
+
+        private void newlbl_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            KeyDown -= Form1_KeyDown;
+            var res = MessageBox.Show("Вы точно хотите начать новую игру?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+            {
+                startGame();
+                timer1.Enabled = true;
+                KeyDown += Form1_KeyDown;
+                buttonMus.TabIndex = 0;
+                buttonMus.Focus();
+                return;
+            }
+            timer1.Enabled = true;
+            KeyDown += Form1_KeyDown;
         }
     }
 }

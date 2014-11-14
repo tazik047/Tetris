@@ -40,8 +40,8 @@ namespace tetris
                 });
                 if 
                     (i < 3) record[record.Count - 1].ForeColor = System.Drawing.Color.Red;
-                else 
-                    record[record.Count - 1].ForeColor = System.Drawing.Color.LightCyan;
+                else
+                    record[record.Count - 1].ForeColor = System.Drawing.Color.Honeydew;
 
                 if (gamers[i].IsLast)
                 {
@@ -57,14 +57,13 @@ namespace tetris
                     Size = new System.Drawing.Size(50, 25),
                     Location = new System.Drawing.Point(x, y),
                     BackColor = System.Drawing.Color.Transparent,
-                    ForeColor = System.Drawing.Color.LightCyan,
                     Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))),
                     TextAlign = System.Drawing.ContentAlignment.TopRight,
                 });
                 if (i < 3) 
                     record[record.Count - 1].ForeColor = System.Drawing.Color.Red;
-                else 
-                    record[record.Count - 1].ForeColor = System.Drawing.Color.LightCyan;
+                else
+                    record[record.Count - 1].ForeColor = System.Drawing.Color.Honeydew;
 
                 if (gamers[i].IsLast)
                 {
