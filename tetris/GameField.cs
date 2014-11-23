@@ -15,7 +15,7 @@ using System.IO;
 
 namespace tetris
 {
-    public partial class Form1 : Form
+    public partial class GameField : Form
     {
         Figure myFigure;
         Figure nextFigure;
@@ -27,7 +27,7 @@ namespace tetris
         NewBestScore nbs;
         bool gameover;
 
-        public Form1()
+        public GameField()
         {
             InitializeComponent();
 

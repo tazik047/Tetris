@@ -17,12 +17,12 @@ namespace tetris
             InitializeComponent();
         }
 
-        Form1 form;
+        GameField form;
         Records records;
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            form = new Form1();
+            form = new GameField();
             form.ShowDialog();
             this.Show();
             form.WMP.controls.pause();

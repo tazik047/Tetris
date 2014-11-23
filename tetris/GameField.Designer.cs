@@ -1,6 +1,6 @@
 ﻿namespace tetris
 {
-    partial class Form1
+    partial class GameField
     {
         /// <summary>
         /// Требуется переменная конструктора.
@@ -262,7 +262,7 @@
             this.newlbl.Text = "            ";
             this.newlbl.Click += new System.EventHandler(this.newlbl_Click);
             // 
-            // Form1
+            // GameField
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -282,8 +282,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Name = "GameField";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Тетрис";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);

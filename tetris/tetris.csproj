@@ -52,11 +52,11 @@
     <Compile Include="Entity\TFigure.cs" />
     <Compile Include="Entity\ZFigure.cs" />
     <Compile Include="Entity\ZrevFigure.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="GameField.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GameField.Designer.cs">
+      <DependentUpon>GameField.cs</DependentUpon>
     </Compile>
     <Compile Include="Gamer.cs" />
     <Compile Include="Heap.cs" />
@@ -85,8 +85,8 @@
     <Compile Include="Records.Designer.cs">
       <DependentUpon>Records.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="GameField.resx">
+      <DependentUpon>GameField.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
