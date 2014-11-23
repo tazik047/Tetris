@@ -239,6 +239,7 @@
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox4.Image = global::tetris.Properties.Resources.volumeON;
             this.pictureBox4.Location = new System.Drawing.Point(51, 119);
             this.pictureBox4.Name = "pictureBox4";
@@ -252,6 +253,7 @@
             // 
             this.newlbl.AutoSize = true;
             this.newlbl.BackColor = System.Drawing.Color.Transparent;
+            this.newlbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.newlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.newlbl.Location = new System.Drawing.Point(21, 24);
             this.newlbl.Name = "newlbl";
