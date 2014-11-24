@@ -186,16 +186,7 @@
     <None Include="Resources\music_off-512.png" />
     <None Include="Resources\bgbest.jpg" />
     <None Include="Resources\bgmain.jpg" />
-    <None Include="Resources\bggame.jpg" />
     <None Include="Resources\Navigation-keys_thumb[3].png" />
-    <None Include="Resources\bggame2.jpg" />
-    <None Include="Resources\bggame21.jpg" />
-    <None Include="Resources\bggame3.jpg" />
-    <None Include="Resources\bggame4.jpg" />
-    <None Include="Resources\bggame41.jpg" />
-    <None Include="Resources\bggame5.jpg" />
-    <None Include="Resources\bggame6.jpg" />
-    <None Include="Resources\bggame7.jpg" />
     <None Include="Resources\bggame8.jpg" />
     <None Include="Resources\images.jpg" />
     <Content Include="Resources\Tetris.mp3" />
