@@ -175,6 +175,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Rules.chm" />
     <None Include="Resources\volumeOFF.png" />
     <None Include="Resources\volumeOFF.jpg" />
     <None Include="Resources\volumeON.png" />

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace tetris
 {
@@ -33,22 +34,25 @@ namespace tetris
             this.Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            
-        }
+       
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            records = new Records();
-            records.ShowDialog();
-            this.Show();
-        }
+            private void button2_Click(object sender, EventArgs e)
+            {
+                this.Hide();
+                records = new Records();
+                records.ShowDialog();
+                this.Show();
+            }
 
-        private void MainMenu_Load(object sender, EventArgs e)
-        {
+            private void MainMenu_Load(object sender, EventArgs e)
+            {
 
+            }
+
+            private void button3_Click(object sender, EventArgs e)
+            {
+                Help.ShowHelpIndex(this, @"Rules.chm");
+            }
         }
     }
-}
+
